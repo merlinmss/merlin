@@ -1,0 +1,24 @@
+.navbar {
+    box-shadow: 0px 5px 21px -5px #CDD1E1 !important;
+}
+.page-header {
+    margin-bottom: 0.5rem !important;
+}
+.breadcrumb {
+    border: none !important;
+}
+.page-header .page-title {
+    line-height: 2 !important;
+    font-weight: 700;
+}
+
+.btn.btn-sm{ border-radius: 5px !important; }
+.add-btn{ float: right; }
+.form-control, .typeahead, .tt-query, .tt-hint, .select2-container--default .select2-selection--single .select2-search__field, .select2-container--default .select2-selection--single, .form-select, .chosen-container {
+    line-height: 2.5rem !important;
+}
+.chosen-container-single .chosen-single, .chosen-container-multi .chosen-choices {
+    width: 100% !important;
+    height: 2.5rem !important;
+    background: none !important;
+}
