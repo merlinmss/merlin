@@ -14,7 +14,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss','resources/css/custom.css', 'resources/js/app.js'])
+    @vite(['resources/css/custom.css', 'resources/js/app.js'])
     @include('layouts.default.head')
 </head>
 <body>
