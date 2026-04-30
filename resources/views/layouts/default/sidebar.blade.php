@@ -15,8 +15,10 @@
               </a>
               <div class="collapse" id="auth">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="{{ route('user.list') }}"> Users List </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> User Roles </a></li>
+                    @if (auth()->user()->can('manage-users'))
+                      <li class="nav-item"> <a class="nav-link" href="{{ route('user.list') }}"> Users List </a></li>
+                    @endif
+                    <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> User Roles </a></li>
                 </ul>
               </div>
             </li>

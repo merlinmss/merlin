@@ -38,6 +38,12 @@ class AppServiceProvider extends ServiceProvider
                 ->exists();
         });
 
+        Gate::define('edit-users', function ($user) {
+            return $user->roles()
+                ->whereIn('identifier', ['super_admin', 'admin'])
+                ->exists();
+        });
+
         Gate::define('delete-users', function ($user) {
             return $user->roles()
                 ->whereIn('identifier', ['super_admin'])

@@ -41,7 +41,7 @@
                             </td>
                               <td><label class="badge @if($user->status == 1) badge-success @else badge-danger @endif ">@if($user->status == 1) Active @else Inactive @endif</label></td>
                                 <td>
-                                    @if (auth()->user()->can('manage-users'))
+                                    @if (auth()->user()->can('edit-users'))
                                     <a href="{{ route('user.detail',$user->id) }}" class="btn btn-sm btn-info edit-btn">Edit </a>
                                     @endif
                                     @if (auth()->user()->can('delete-users'))
