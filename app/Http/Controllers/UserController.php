@@ -17,7 +17,7 @@ class UserController extends Controller
        
         $userData           =   (array) CreateUserData::fromArray($request->validated());
         $user               =   $this->action->execute($userData);
-        return response()->json($user, 201);
+        return redirect()->back()->with('success', 'User saved successfully.')    ;
     }
 
     public function show($id){
