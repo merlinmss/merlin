@@ -31,7 +31,10 @@
                       <tbody>
                         @forelse($users as $user)
                             <tr>
-                              <td>{{ $user->name }}</td>
+                                <td>
+                                    <img src="{{ asset('storage/' . $user->profile_pic) }}" alt="" class="rounded-circle me-2" width="30" height="30">
+                                    {{ $user->name }}
+                                </td>
                               <td>{{ $user->email }}</td>
                               <td>{{ $user->phone }}</td>
                             <td>

@@ -166,3 +166,42 @@ This project has domain-specific skills available. You MUST activate the relevan
 - Do NOT delete tests without approval.
 
 </laravel-boost-guidelines>
+
+<!-- cloude-code-toolbox:mcp-skills-awareness-begin -->
+
+### MCP & Skills awareness (Cloude Code ToolBox)
+
+_Last synced: 2026-05-11T11:08:17.579Z._
+
+- **Full report:** `.claude/cloude-code-toolbox-mcp-skills-awareness.md` in this workspace (auto-overwritten on each scan). Use it as ground truth for configured servers and skill folders.
+- **MCP:** For **live tools** in Claude Code, enable the matching server via `/mcp`. Servers are configured in `~/.claude.json` (user) and `.mcp.json` (project).
+- **When the user’s task matches a server** (e.g. Confluence work and a **Confluence** / **Atlassian** MCP is listed), **prefer that server id** and plan on tool use—not only file search.
+- **Skills:** Folders below contain `SKILL.md`; attach or cite paths in chat when relevant.
+
+#### Workspace MCP
+
+- `d:\Merlin\projects\htdocs\laravel\project1\.mcp.json` _(workspace: project1)_ — _servers defined_
+
+| Server id | Kind | Detail |
+|-----------|------|--------|
+| laravel-boost | stdio | php artisan boost:mcp |
+
+#### User MCP
+
+- `C:\Users\Merlin\.claude.json` — _file missing_
+
+_No active user-scoped servers in mcp.json._
+
+#### Project skills
+
+- **laravel-best-practices** — `d:\Merlin\projects\htdocs\laravel\project1\.claude\skills\laravel-best-practices` — Apply this skill whenever writing, reviewing, or refactoring Laravel PHP code. This includes creating or modifying controllers, models, migrations, form requests, policies, jobs, scheduled commands, service classes, and 
+
+- **pest-testing** — `d:\Merlin\projects\htdocs\laravel\project1\.claude\skills\pest-testing` — Use this skill for Pest PHP testing in Laravel projects only. Trigger whenever any test is being written, edited, fixed, or refactored — including fixing tests that broke after a code change, adding assertions, convertin
+
+- **tailwindcss-development** — `d:\Merlin\projects\htdocs\laravel\project1\.claude\skills\tailwindcss-development` — Always invoke when the user's message includes 'tailwind' in any form. Also invoke for: building responsive grid layouts (multi-column card grids, product grids), flex/grid page structures (dashboards with sidebars, fixe
+
+#### User skills
+
+_None found._
+
+<!-- cloude-code-toolbox:mcp-skills-awareness-end -->

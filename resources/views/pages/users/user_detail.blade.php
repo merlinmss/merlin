@@ -4,6 +4,8 @@
     $email      =   isset($user) ? $user->email : '';
     $phone      =   isset($user) ? $user->phone : '';
     $status     =   isset($user) ? $user->status : 1;
+    $profile_pic=   isset($user) ? $user->profile_pic : '';
+
     if(isset($user->userRoleIds)){
         foreach($user->userRoleIds as $roleId){
             $roleIds[]  =   $roleId->role_id;
@@ -31,7 +33,7 @@
          <div class="col-md-8 offset-md-2 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <form class="forms-sample" name="userForm" method="post" action="{{ route('user.store') }}">
+                    <form class="forms-sample" name="userForm" method="post" action="{{ route('user.store') }}" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="id" value="{{ isset($user) ? $user->id : 0 }}">
                       <div class="form-group">
@@ -60,6 +62,20 @@
                         </select>
                         <x-input-error :messages="$errors->get('roles')" class="mt-2" />
                       </div>
+                        <div class="form-group">
+                            <label for="profile_pic">Profile Picture</label>
+                            @if($profile_pic != '')
+                                <div class="mb-2 col-6 col-md-4">
+                                    <img src="{{ asset('storage/' . $profile_pic) }}" alt="Profile Picture" class="img-thumbnail" width="150">
+                                </div>
+                                <div class="mb-2 col-6 col-md-4">
+
+                                 </div>
+                            @endif
+                            <input type="file" class="form-control" id="profile_pic" name="profile_pic" value="{{ old('profile_pic', $profile_pic) }}" placeholder="Profile Picture">
+                            <x-input-error :messages="$errors->get('profile_pic')" class="mt-2" />
+                        </div>
+
                         <div class="form-group">
                             <label for="status">Status</label>
                             <select class="form-control  chosen-select" id="status" name="status">

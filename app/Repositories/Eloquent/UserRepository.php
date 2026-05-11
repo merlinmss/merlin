@@ -5,6 +5,7 @@ namespace App\Repositories\Eloquent;
 
 use App\Models\User;
 use App\Models\UserRoleId;
+use Illuminate\Support\Facades\Storage;
 use App\Repositories\Contracts\UserRepositoryInterface;
 
 class UserRepository implements UserRepositoryInterface
@@ -17,6 +18,17 @@ class UserRepository implements UserRepositoryInterface
             $user->save();
         }else{
             $user = new User($data);
+            $user->save();
+        }
+        if (request()->hasFile('profile_pic')) {
+            $storageDevice = config('filesystems.default');
+            // delete old image from storage
+         //   if (Storage::disk($storageDevice)->exists($user->profile_pic)) {
+         //       Storage::disk($storageDevice)->delete($user->profile_pic);
+          //  }
+            // store new image and update user record
+            $filename = request()->file('profile_pic')->store("users/$user->id/profile_pic", $storageDevice);
+            $user->profile_pic = $filename;
             $user->save();
         }
         return $user;

@@ -27,8 +27,8 @@ class CreateUserRequest extends FormRequest
             ],
 
             'roles' => 'required|array',
-            'roles.*' => 'exists:user_roles,id', // add this 👈
-
+            'roles.*' => 'exists:user_roles,id', 
+            'profile_photo' => 'image|mimes:jpg,jpeg,png|max:2048',
             'status' => 'required|integer',
         ];
     }
