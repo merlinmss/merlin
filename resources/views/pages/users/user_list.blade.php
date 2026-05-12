@@ -31,8 +31,8 @@
                       <tbody>
                         @forelse($users as $user)
                             <tr>
-                                <td>
-                                    <img src="{{ asset('storage/' . $user->profile_pic) }}" alt="" class="rounded-circle me-2" width="30" height="30">
+                                <td> 
+                                    <img src="{{ Storage::disk(config('filesystems.default'))->url($user->profile_pic) }}" alt="" class="rounded-circle me-2" width="30" height="30">
                                     {{ $user->name }}
                                 </td>
                               <td>{{ $user->email }}</td>
