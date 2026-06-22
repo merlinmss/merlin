@@ -18,8 +18,14 @@
         "vite": "^8.0.0"
     },
     "dependencies": {
+        "@popperjs/core": "^2.11.8",
         "axios": "^1.15.2",
+        "bootstrap": "^5.3.8",
         "chosen-js": "^1.8.7",
-        "jquery": "^4.0.0"
+        "datatables.net": "^2.3.8",
+        "datatables.net-bs5": "^2.3.8",
+        "datatables.net-dt": "^2.3.8",
+        "jquery": "^4.0.0",
+        "sass": "^1.100.0"
     }
 }

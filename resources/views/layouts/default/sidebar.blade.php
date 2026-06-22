@@ -1,9 +1,9 @@
 <nav class="sidebar sidebar-offcanvas mt-2" id="sidebar">
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="{{url('/staff/dashboard')}}">
+              <a class="nav-link" href="{{url('/dashboard')}}">
                 <i class="mdi mdi-grid-large menu-icon"></i>
-                <span class="menu-title">Dashboard</span>
+                <span class="menu-title">{{ __('Dashboard') }}</span>
               </a>
             </li>
             
@@ -22,6 +22,27 @@
                 </ul>
               </div>
             </li>
+
+            
+            <li class="nav-item d-none">
+              <a class="nav-link" data-bs-toggle="collapse" href="#carecell" aria-expanded="false" aria-controls="carecell">
+                <i class="menu-icon mdi mdi-grid-large menu-icon"></i>
+                <span class="menu-title">{{ __('Carecell') }}</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="collapse" id="carecell">
+                <ul class="nav flex-column sub-menu">
+                    @if (auth()->user()->can('manage-users'))
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('pastor.list') }}"> {{ __('Pastors List') }} </a></li>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('carecell_area.list') }}"> {{ __('Carecell Areas') }} </a></li>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('carecell_leader.list') }}"> {{ __('Carecell Leaders') }} </a></li>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('carecell_meeting.list') }}"> {{ __('Carecell Meetings') }} </a></li>
+                    @endif
+                </ul>
+              </div>
+            </li>
+
+
             <li class="nav-item">
               <a class="nav-link" data-bs-toggle="collapse" href="#settings" aria-expanded="false" aria-controls="settings">
                 <i class="menu-icon mdi mdi-account-circle-outline"></i>

@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\UserRoleId;
 use Illuminate\Support\Facades\Storage;
 use App\Repositories\Contracts\UserRepositoryInterface;
+use Yajra\DataTables\DataTables;
 
 class UserRepository implements UserRepositoryInterface
 {
@@ -42,6 +43,34 @@ class UserRepository implements UserRepositoryInterface
     public function fetchUserList()
     {
         return User::with('roles')->paginate(10);
+    }
+
+    public function fetchUserData()
+    {
+        $users = User::with('roles')->get();
+  /*      foreach ($users as $user) {
+            $roleNames  = $user->roles->pluck('role_name')->toArray();
+            $rNames = '';
+            if($roleNames){ foreach($roleNames as $roleName){ $rNames .= '<div>'.$roleName.'</div>'; }}
+            else{ $rNames = false;}
+            $user->role_names = $rNames ?? '';
+        } */
+     //   return DataTables::of($users)->make(true);
+
+
+            return  DataTables::of($users)
+            ->addColumn('roles', function ($row) {
+                $html = '';
+                // Loop through each related model dynamically
+                foreach ($row->roles as $role) {
+                    // Map dynamic data variables like $role->name
+                    $html .= '<div>' . $role->role_name . '</div>';
+                }
+
+                return $html ?: '<span class="text-muted">No Roles</span>';
+            })
+            ->rawColumns(['roles']) // Crucial: tells Yajra not to escape this HTML
+            ->make(true);
     }
     
     public function find($id)
